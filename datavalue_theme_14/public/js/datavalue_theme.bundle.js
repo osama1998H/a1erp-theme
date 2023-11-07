@@ -1,0 +1,10 @@
+import "./frappe/ui/page.html";
+import "./frappe/ui/page.js";
+import "./frappe/views/container.js";
+import "./frappe/views/breadcrumbs.js";
+import "./frappe/ui/toolbar/toolbar.js";
+import "./frappe/ui/toolbar/navbar.html";
+import "./frappe/ui/notifications/notifications.js";
+import "./frappe/form/controls/icon.js";
+import "./vue/side-menu.js";
+import "./frappe/ui/toolbar/theme-setting.js";

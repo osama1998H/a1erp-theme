@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include datavalue_theme_14 *.css
+recursive-include datavalue_theme_14 *.csv
+recursive-include datavalue_theme_14 *.html
+recursive-include datavalue_theme_14 *.ico
+recursive-include datavalue_theme_14 *.js
+recursive-include datavalue_theme_14 *.json
+recursive-include datavalue_theme_14 *.md
+recursive-include datavalue_theme_14 *.png
+recursive-include datavalue_theme_14 *.py
+recursive-include datavalue_theme_14 *.svg
+recursive-include datavalue_theme_14 *.txt
+recursive-exclude datavalue_theme_14 *.pyc

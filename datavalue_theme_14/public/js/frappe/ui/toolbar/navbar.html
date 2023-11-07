@@ -1,0 +1,138 @@
+<div class="dv-navbar-overlay"></div>
+<div class="dv-navbar datavalue-nav">
+    <div class="container-fluid">
+        <div class="dv-nav-left">
+            <button type="button" class="btn-open-mobile-menu"><i class="far fa-bars"></i></button>
+            <button type="button" class="btn-open-modules"><i class="flaticon-menu"></i></button>
+            <div class="logo" id="datavalue-app-logo" :class="logo_class"><a href="/app"><img v-if="logo_path && logo_path.length" :src="logo_path"></a></div>
+            <div class="navbar-breadcrumbs">
+                <ul class="nav navbar-nav d-none d-sm-flex" id="navbar-breadcrumbs"></ul>
+            </div>
+        </div>
+        <div class="dv-nav-right">
+            <ul class="list-unstyled">
+                <li class="nav-item dropdown dropdown-user" id="header-navbar-user">
+                    <a class="nav-link dropdown-toggle dropdown-user-link" data-toggle="dropdown">
+                    <span class="dv-nav-avatar">
+                        {{ avatar }}
+                        <span class="avatar-status-online"></span>
+                    </span>
+                        <div class="dv-user-info">
+                            <span class="user-name">[[user.full_name]]</span>
+                            <span class="user-status">[[user_type]]</span>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user">
+                        <div class="dropdown-item dropdown-item-username show-on-mobile">
+                            [[user.full_name]]
+                        </div>
+                        <div class="dropdown-divider show-on-mobile"></div>
+                        {% for item in navbar_settings.settings_dropdown %}
+                        {% if (!item.hidden) { %}
+                        {% if (item.route) { %}
+                        <a class="dropdown-item" href="{{ item.route }}">
+                            {%= __(item.item_label) %}
+                        </a>
+                        {% } else if (item.action && item.action!="new frappe.ui.ThemeSwitcher().show()") { %}
+                        <a class="dropdown-item" onclick="return {{ item.action }}">
+                            {%= __(item.item_label) %}
+                        </a>
+                        {% } else { %}
+                        <div class="dropdown-divider"></div>
+                        {% } %}
+                        {% } %}
+                        {% endfor %}
+                    </div>
+                </li>
+                <li class="nav-item dropdown dv-dropdown-notifications">
+                    <a class="nav-link notifications-icon animated-tada" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" href="#" onclick="return false;">
+					<span class="notifications-seen">
+                        <i class="far fa-bell animated-icon"></i>
+                    </span>
+                        <span class="notifications-unseen">
+                        <svg class="icon icon-md"><use href="#icon-notification-with-indicator"></use></svg>
+                    </span>
+                    </a>
+                    <div class="dropdown-menu notifications-list dropdown-menu-right" role="menu">
+                        <div class="notification-list-header">
+                            <div class="header-items"></div>
+                            <div class="header-actions"></div>
+                        </div>
+                        <div class="notification-list-body">
+                            <div class="panel-notifications"></div>
+                            <div class="panel-events"></div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item dropdown dv-dropdown-notifications dropdown-notifications dropdown-mobile chat-navbar-icon" title="{%= __("Show Chats") %}" style="display:none">
+
+                </li>
+                <li class="nav-item dropdown-full-screen">
+                    <button type="button" class="nav-link open-theme-setting animated-tada">
+                        <i class="far fa-palette animated-icon"></i>
+                    </button>
+                </li>
+                <li class="nav-item dropdown-search">
+                    <button type="button" class="nav-link open-search animated-tada">
+                        <i class="far fa-search"></i>
+                    </button>
+                </li>
+                <li class="nav-item dropdown dropdown-language" id="header-navbar-change-lang">
+                    <a class="nav-link dropdown-lang-link" data-toggle="dropdown">
+                        <span :class="lang_list[active_lang].flag" v-if="hide_language_icon!=1"></span>
+                        [[lang_list[active_lang].label]]
+                        <span>
+							<svg class="icon icon-xs"><use href="#icon-small-down"></use></svg>
+						</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" data-lang="EN">
+                            <span class="dv-lang-flag lang-en" v-if="hide_language_icon!=1"></span> EN
+                        </a>
+                        <a class="dropdown-item" data-lang="AR">
+                            <span class="dv-lang-flag lang-ar" v-if="hide_language_icon!=1"></span> AR
+                        </a>
+                    </div>
+                </li>
+                {% if(show_help_icon) { %}
+                <li class="nav-item dropdown dropdown-language dropdown-help">
+                    <a class="nav-link dropdown-lang-link animated-tada" data-toggle="dropdown" href="#" onclick="return false;">
+                        {{ __("Help") }}
+                        <span>
+                                <svg class="icon icon-xs"><use href="#icon-small-down"></use></svg>
+                            </span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" id="toolbar-help" role="menu" style="width:auto;">
+                        <div id="help-links"></div>
+                        <div class="dropdown-divider documentation-links"></div>
+                        {% for item in navbar_settings.help_dropdown %}
+                        {% if (!item.hidden) { %}
+                        {% if (item.route) { %}
+                        <a class="dropdown-item" href="{{ item.route }}">
+                            {%= __(item.item_label) %}
+                        </a>
+                        {% } else if (item.action) { %}
+                        <a class="dropdown-item" onclick="return {{ item.action }}">
+                            {%= __(item.item_label) %}
+                        </a>
+                        {% } else { %}
+                        <div class="dropdown-divider"></div>
+                        {% } %}
+                        {% } %}
+                        {% endfor %}
+                    </div>
+                </li>
+                {% } %}
+            </ul>
+        </div>
+        <form class="dv-nav-search" onsubmit="return false;">
+            <input id="navbar-search" type="text" class="form-control" placeholder="{%= __(" Search or type a command (Ctrl + G)") %}" aria-haspopup="true">
+            <span class="search-icon"><i class="fal fa-search"></i></span>
+            <button type="button" class="dv-nav-search-close"><i class="far fa-times"></i></button>
+        </form>
+    </div>
+</div>
+<header class="navbar navbar-expand sticky-top" role="navigation" style="display:none;">
+    <div class="container">
+    </div>
+</header>

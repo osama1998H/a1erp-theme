@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html data-theme="{{dark_theme}}" data-dv-theme="{{dark_theme}}" dir={{ layout_direction }} lang="{{ lang }}">
+	<head>
+		<!-- Chrome, Firefox OS and Opera -->
+		<meta name="theme-color" content="#14a6ef">
+		<!-- Windows Phone -->
+		<meta name="msapplication-navbutton-color" content="#14a6ef">
+		<!-- iOS Safari -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="#14a6ef">
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+		<meta content="utf-8" http-equiv="encoding">
+		<meta name="author" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="white">
+		<meta name="mobile-web-app-capable" content="yes">
+		<title>Data Value</title>
+		<link rel="shortcut icon" href="{{ get_theme_settings.favicon or "/assets/datavalue_theme_14/images/logo-icon.png" }}" type="image/x-icon">
+		<link rel="icon" href="{{ get_theme_settings.favicon or "/assets/datavalue_theme_14/images/logo-icon.png" }}" type="image/x-icon">
+		<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family={{get_theme_settings.font_family or 'Cairo'}}:300,400,500,600,700,800,900">
+		{% for include in include_css -%}
+		{{ include_style(include) }}
+		{%- endfor -%}
+		<style>
+			html body {
+				font-family: "{{get_theme_settings.font_family or 'Cairo'}}";
+			}
+		</style>
+	</head>
+	<body class="full-width dv-{{get_theme_settings.theme_color}}-style {% if(get_theme_settings.dark_view=='1') %}dv-dark-style{% endif %}"
+		  data-theme-color="{{get_theme_settings.theme_color}}"
+		  data-close-sub-menu="{{get_theme_settings.always_close_sub_menu}}"
+		  data-menu-opening-type="{{get_theme_settings.menu_opening_type}}"
+		  data-hide-language-icon="{{get_theme_settings.hide_language_icon or 0}}"
+		  data-show-help-icon="{{get_theme_settings.show_help_icon or 0}}"
+		  data-font-family="{{get_theme_settings.font_family or 'Cairo'}}"
+	>
+		{% include "public/icons/timeless/icons.svg" %}
+        <div class="centered splash">
+            <img style="max-width:100px;max-height:100px;" src="{{ get_theme_settings.loading_image or "/assets/datavalue_theme_14/images/icon-md.gif" }}">
+        </div>
+        <div class="dv-app-theme main-section">
+            <header></header>
+			<div class="dv-content-overlay"></div>
+            <div class="dv-app-content" id="body"></div>
+            <footer></footer>
+			{{ frappe.render_template('templates/side-menu.html', {}) }}
+        </div>
+
+		<script type="text/javascript">
+			window._version_number = "{{ build_version }}";
+			// browser support
+			window.app = true;
+			window.dev_server = {{ dev_server }};
+
+			if (!window.frappe) window.frappe = {};
+
+			frappe.boot = JSON.parse({{ boot }});
+			frappe._messages = frappe.boot["__messages"];
+			frappe.csrf_token = "{{ csrf_token }}";
+
+		</script>
+		{% for include in include_js %}
+		{{ include_script(include) }}
+		{% endfor %}
+		<script type="text/javascript" src="/assets/datavalue_theme_14/js/datavalue_theme.js?ver={{ build_version }}"></script>
+
+		{% include "templates/includes/app_analytics/google_analytics.html" %}
+		{% include "templates/includes/app_analytics/mixpanel_analytics.html" %}
+
+		{% for sound in (sounds or []) %}
+		<audio preload="auto" id="sound-{{ sound.name }}" volume={{ sound.volume or 1 }}>
+			<source src="{{ sound.src }}"></source>
+		</audio>
+		{% endfor %}
+	</body>
+</html>
