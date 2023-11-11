@@ -168,7 +168,29 @@ body.dv-dark-style, html[data-theme="dark"] {
 
   .list-row-head {
     background: #1b1e23;
-    border-bottom: 1px solid #2f363e;
+    border: 1px solid #2f363e;
+  }
+
+  .frappe-list .list-row-container {
+    border: 1px solid #2f363e;
+  }
+
+  .frappe-list .list-row-head {
+    color: #bbb !important;
+  }
+
+  .list-row:hover:not(.list-row-head), .list-row-head:hover:not(.list-row-head) {
+    background-color: #24282f;
+  }
+
+  .col-lg-2.layout-side-section .list-sidebar .sidebar-section > li.sidebar-label, .col-lg-2.layout-side-section .form-sidebar > .sidebar-menu > li.sidebar-label {
+    background: #24292f;
+    color: #a7a7a7;
+  }
+
+  .col-lg-2.layout-side-section .list-sidebar .sidebar-section, .col-lg-2.layout-side-section .form-sidebar > .sidebar-menu {
+    background: #1b1e23;
+    border: 1px solid #2f363e;
   }
 
   .page-form {

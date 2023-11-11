@@ -11,12 +11,12 @@ $(document).on('click', '.open-theme-setting', function (event) {
     let d = new frappe.ui.Dialog({
         title: __('Theme Settings'),
         fields: [
-            {
-                label: 'Dark Style',
-                fieldname: 'dark_style',
-                fieldtype: 'Check',
-                default: ($('html').attr('data-theme') == 'dark' && $('body').hasClass('dv-dark-style')) ? 1 : 0
-            },
+            // {
+            //     label: 'Dark Style',
+            //     fieldname: 'dark_style',
+            //     fieldtype: 'Check',
+            //     default: ($('html').attr('data-theme') == 'dark' && $('body').hasClass('dv-dark-style')) ? 1 : 0
+            // },
             {
                 label: 'Colors',
                 fieldname: 'colors_icons',
@@ -40,7 +40,7 @@ $(document).on('click', '.open-theme-setting', function (event) {
                 dark_style: values.dark_style
             }
             frappe.db.set_value('Theme Settings', 'Theme Settings', {
-                'dark_view': data.dark_style,
+                // 'dark_view': data.dark_style,
                 'theme_color': data.color_name
             }, function () {
                 frappe.ui.toolbar.clear_cache();

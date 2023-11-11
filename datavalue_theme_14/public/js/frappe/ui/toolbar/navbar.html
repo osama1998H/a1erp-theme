@@ -11,20 +11,20 @@
         </div>
         <div class="dv-nav-right">
             <ul class="list-unstyled">
-                <li class="nav-item dropdown dropdown-user" id="header-navbar-user">
+                <li class="nav-item dropdown dropdown-user">
                     <a class="nav-link dropdown-toggle dropdown-user-link" data-toggle="dropdown">
                     <span class="dv-nav-avatar">
                         {{ avatar }}
                         <span class="avatar-status-online"></span>
                     </span>
-                        <div class="dv-user-info">
+                        <div class="dv-user-info" id="header-navbar-user">
                             <span class="user-name">[[user.full_name]]</span>
                             <span class="user-status">[[user_type]]</span>
                         </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user">
                         <div class="dropdown-item dropdown-item-username show-on-mobile">
-                            [[user.full_name]]
+                            {{user_data.full_name}}
                         </div>
                         <div class="dropdown-divider show-on-mobile"></div>
                         {% for item in navbar_settings.settings_dropdown %}
@@ -33,7 +33,7 @@
                         <a class="dropdown-item" href="{{ item.route }}">
                             {%= __(item.item_label) %}
                         </a>
-                        {% } else if (item.action && item.action!="new frappe.ui.ThemeSwitcher().show()") { %}
+                        {% } else if (item.action) { %}
                         <a class="dropdown-item" onclick="return {{ item.action }}">
                             {%= __(item.item_label) %}
                         </a>

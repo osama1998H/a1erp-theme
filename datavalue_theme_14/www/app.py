@@ -50,8 +50,9 @@ def get_context(context):
     # TODO: Find better fix
     boot_json = CLOSING_SCRIPT_TAG_PATTERN.sub("", boot_json)
     boot_json = json.dumps(boot_json)
+    desk_theme = frappe.db.get_value("User", frappe.session.user, "desk_theme")
     theme = 'light'
-    if (theme_settings_list['dark_view'] == '1'):
+    if (desk_theme == 'Dark'):
         theme = 'dark'
 
     context.update(

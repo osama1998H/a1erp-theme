@@ -177,7 +177,7 @@
             el: '#datavalue-app-logo',
             delimiters: ["[[", "]]"],
             data: {
-                logo_path: '/assets/datavalue_theme_14/images/logo-32.png',
+                logo_path: '',
                 logo_class: '',
                 user: {},
             },
@@ -263,6 +263,13 @@
             created: function () {
                 this.get_current_language();
             }
+        });
+
+
+        // list-sidebar .sidebar-section
+        $(document).on('click', '.list-sidebar .sidebar-section > li.sidebar-label, .form-sidebar > .sidebar-menu > li.sidebar-label', function () {
+            let parent = $(this).parent();
+            parent.toggleClass('hide-content');
         });
 
     });

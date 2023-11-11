@@ -39,6 +39,7 @@
    "default": "0",
    "fieldname": "dark_view",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Dark View"
   },
   {
@@ -164,7 +165,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-11-01 20:46:17.649723",
+ "modified": "2023-11-07 19:24:35.779614",
  "modified_by": "Administrator",
  "module": "Datavalue Theme 14",
  "name": "Theme Settings",

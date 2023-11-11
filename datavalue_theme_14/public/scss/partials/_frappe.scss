@@ -424,3 +424,261 @@ button.btn.btn-default.btn-sm.btn-paging.btn-info {
     margin: 0px auto;
   }
 }
+
+[dir="rtl"] {
+  .sidebar-image-actions {
+    .dropdown-menu {
+      left: 70px !important;
+      right: inherit !important;
+    }
+  }
+
+  //.cropper-container, .cropper-canvas, .cropper-crop-box, .cropper-drag-box, .cropper-modal, .cropper-wrap-box {
+  //  direction: ltr !important;
+  //}
+}
+
+body.dv-theme-dark {
+  background-color: var(--gray-900);
+}
+
+
+/*New Style*/
+
+.col-lg-2.layout-side-section {
+  padding-right: 15px;
+  margin-left: 0px;
+
+  .list-sidebar .sidebar-section {
+    background: #ffffff;
+    border: 1px solid #e6e6e6;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 7px;
+    transition: all 0.4s ease-in-out;
+
+    > li.sidebar-label {
+      background: #f3f3f5;
+      margin: -15px -15px 0px -15px;
+      color: #444444;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 15px;
+      position: relative;
+      align-items: center;
+      cursor: pointer;
+      border-radius: 5px 5px 0px 0px;
+
+      &:after {
+        font-family: "Font Awesome 5 Pro";
+        font-weight: 400;
+        position: absolute;
+        font-size: 18px;
+        top: 8px;
+        right: 8px;
+        content: "";
+      }
+
+      &:before {
+        font-family: "Font Awesome 5 Pro";
+        font-weight: 400;
+        position: absolute;
+        font-size: 18px;
+        top: 0px;
+        right: 8px;
+        content: "";
+        display: none;
+      }
+    }
+
+    &.hide-content {
+      height: 37px;
+      overflow: hidden;
+
+      > li.sidebar-label {
+        &:after {
+          display: none;
+        }
+
+        &:before {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .form-sidebar > .sidebar-menu {
+    background: #ffffff;
+    border: 1px solid #e6e6e6;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 7px;
+
+    > li.sidebar-label {
+      background: #f3f3f5;
+      margin: -15px -15px 15px -15px;
+      color: #444444;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 15px;
+      cursor: pointer;
+      border-radius: 5px 5px 0px 0px;
+
+      &:after {
+        font-family: "Font Awesome 5 Pro";
+        font-weight: 400;
+        position: absolute;
+        font-size: 18px;
+        top: 8px;
+        right: 8px;
+        content: "";
+      }
+
+      &:before {
+        font-family: "Font Awesome 5 Pro";
+        font-weight: 400;
+        position: absolute;
+        font-size: 18px;
+        top: 0px;
+        right: 8px;
+        content: "";
+        display: none;
+      }
+
+      &.hidden {
+        display: block $imp;
+      }
+    }
+
+    &.hide-content {
+      height: 37px;
+      overflow: hidden;
+
+      > li.sidebar-label {
+        &:after {
+          display: none;
+        }
+
+        &:before {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.form-sidebar .sidebar-image-section .sidebar-image {
+  max-height: 100%;
+}
+
+.form-sidebar .sidebar-image-section {
+  width: 100%;
+}
+
+/*  Frappe List */
+
+.frappe-list {
+  padding: 0px $imp;
+
+  .list-row-head {
+    background: #fafafa;
+    border: 1px solid #cacaca;
+    cursor: default;
+    font-size: 16px;
+    font-weight: 700;
+    color: #333333 !important;
+    margin: 10px;
+    border-radius: 7px;
+  }
+
+  .list-row-container {
+    border: 1px solid #dadada;
+    margin: -1px 10px 0px 10px;
+  }
+
+  .result > .list-row-container:nth-of-type(2) {
+    border-radius: 7px 7px 0px 0px;
+    overflow: hidden;
+  }
+
+  .result > .list-row-container:last-of-type {
+    border-radius: 0px 0px 7px 7px;
+    overflow: hidden;
+  }
+
+  .result > .list-row-container:last-of-type:nth-of-type(2) {
+    border-radius: 7px;
+    overflow: hidden;
+  }
+}
+
+.list-row:hover:not(.list-row-head), .list-row-head:hover:not(.list-row-head) {
+  background-color: #fafafa;
+}
+
+/*  Tree */
+
+.tree-node.opened {
+  position: relative;
+}
+
+.tree.with-skeleton {
+  position: relative;
+
+  &::before {
+    background: #d1d8dd;
+    width: 1px;
+    position: absolute;
+    top: 40px;
+    left: 23px;
+    bottom: 24px;
+    z-index: 1;
+    content: "";
+  }
+}
+
+.tree-node {
+  &::before {
+    background: #d1d8dd;
+    width: 1px;
+    position: absolute;
+    top: 30px;
+    left: 12px;
+    bottom: 12px;
+    z-index: 1;
+    content: "";
+  }
+
+  &.open::after {
+    background: #d1d8dd;
+    height: 1px;
+    position: absolute;
+    left: 13px;
+    right: calc(100% - 27px);
+    bottom: 12px;
+    z-index: 0;
+    content: "";
+  }
+
+  .tree-link {
+    position: relative;
+
+    &::after {
+      background: #d1d8dd;
+      height: 1px;
+      position: absolute;
+      left: -17px;
+      right: calc(100% - 1px);
+      bottom: 12px;
+      z-index: 0;
+      content: "";
+    }
+  }
+}
+
+
+.tree-link .node-parent {
+  position: relative;
+  z-index: 5;
+  background: #fff;
+}

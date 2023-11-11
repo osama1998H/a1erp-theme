@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="{{dark_theme}}" data-dv-theme="{{dark_theme}}" dir={{ layout_direction }} lang="{{ lang }}">
+<html data-theme="{{dark_theme}}" data-theme-mode="{{dark_theme}}" data-dv-theme="{{dark_theme}}" dir={{ layout_direction }} lang="{{ lang }}">
 	<head>
 		<!-- Chrome, Firefox OS and Opera -->
 		<meta name="theme-color" content="#14a6ef">
@@ -14,7 +14,7 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="white">
 		<meta name="mobile-web-app-capable" content="yes">
-		<title>Data Value</title>
+		<title>App</title>
 		<link rel="shortcut icon" href="{{ get_theme_settings.favicon or "/assets/datavalue_theme_14/images/logo-icon.png" }}" type="image/x-icon">
 		<link rel="icon" href="{{ get_theme_settings.favicon or "/assets/datavalue_theme_14/images/logo-icon.png" }}" type="image/x-icon">
 		<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family={{get_theme_settings.font_family or 'Cairo'}}:300,400,500,600,700,800,900">
@@ -27,7 +27,7 @@
 			}
 		</style>
 	</head>
-	<body class="full-width dv-{{get_theme_settings.theme_color}}-style {% if(get_theme_settings.dark_view=='1') %}dv-dark-style{% endif %}"
+	<body class="full-width dv-theme-{{dark_theme}} dv-{{get_theme_settings.theme_color}}-style {% if(get_theme_settings.dark_view=='1') %}dv-dark-style{% endif %}"
 		  data-theme-color="{{get_theme_settings.theme_color}}"
 		  data-close-sub-menu="{{get_theme_settings.always_close_sub_menu}}"
 		  data-menu-opening-type="{{get_theme_settings.menu_opening_type}}"

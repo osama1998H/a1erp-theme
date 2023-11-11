@@ -9,6 +9,7 @@ frappe.ui.toolbar.Toolbar = class {
         $("header").replaceWith(
             frappe.render_template("navbar", {
                 avatar: frappe.avatar(frappe.session.user, "avatar-medium"),
+                user_data: frappe.get_cookies(),
                 navbar_settings: frappe.boot.navbar_settings,
                 show_help_icon: ($('body').data('show-help-icon') == 1) ? true : false,
             })
