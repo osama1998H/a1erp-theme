@@ -169,6 +169,7 @@ export default {
         callback: function (response) {
           let current_module = (response && response.message && response.message[0] && response.message[0].module) ? response.message[0].module : localStorage.getItem('current_page');
           console.log('------current_module----------', current_module);
+          console.log('------$this.is_mobile()----------', $this.is_mobile());
           // if ($this.is_dashboard) {
           //     current_module = route[1];
           // }
@@ -177,12 +178,14 @@ export default {
         }
       });
     },
-    module_menu_list: function (current_module) {
+    module_menu_list: function (current_module, is_mobile = false) {
+      console.log('current_module=', current_module);
       const route = frappe.get_route();
       let _module = current_module;
-      if (route && route[0] && route[0] == 'Workspaces') {
+      if (route && route[0] && route[0] == 'Workspaces' && !is_mobile) {
         _module = route[1];
       }
+      console.log('module_menu_list---_module=', _module);
       if (this.modules_list && this.modules_list.length) {
         this.active_module = this.modules_list.filter(function (module) {
           return module.name == _module;
@@ -332,7 +335,7 @@ export default {
     open_module: function (module, is_mobile = false) {
       $('.btn-open-modules').removeClass('active').find('i').removeClass().addClass('flaticon-menu');
       $('.modules-menu').fadeOut();
-      setTimeout(() => this.module_menu_list(module), 100);
+      setTimeout(() => this.module_menu_list(module, is_mobile), 100);
       if (is_mobile == false) {
         if ($('body').data('menu-opening-type') == 'Dashboard') {
           frappe.set_route('/dashboard-view/' + (module));
