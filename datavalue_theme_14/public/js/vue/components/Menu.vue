@@ -345,7 +345,12 @@ export default {
         $('.btn-toggle-main-menu').addClass('menu-shown');
         $('body').removeClass('hide-main-menu');
       } else {
-        this.is_shown_mobile_menu = true;
+        if (this.theme_settings.open_workspace_on_mobile_menu && this.theme_settings.open_workspace_on_mobile_menu == 1) {
+          frappe.set_route('/' + (module.replace(/ /g, "-")).toLowerCase());
+          this.is_shown_mobile_menu = false;
+        } else {
+          this.is_shown_mobile_menu = true;
+        }
       }
     },
     open_dashboard: function (module) {

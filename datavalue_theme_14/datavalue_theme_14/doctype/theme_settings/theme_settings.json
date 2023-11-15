@@ -22,6 +22,7 @@
   "font_style_section",
   "font_family",
   "side_menu_section",
+  "open_workspace_on_mobile_menu",
   "show_icon_label",
   "hide_icon_tooltip",
   "always_close_sub_menu",
@@ -160,12 +161,18 @@
    "fieldname": "favicon",
    "fieldtype": "Attach Image",
    "label": "Favicon"
+  },
+  {
+   "default": "0",
+   "fieldname": "open_workspace_on_mobile_menu",
+   "fieldtype": "Check",
+   "label": "Open Workspace On Mobile Menu"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2023-11-07 19:24:35.779614",
+ "modified": "2023-11-14 03:12:30.703949",
  "modified_by": "Administrator",
  "module": "Datavalue Theme 14",
  "name": "Theme Settings",
