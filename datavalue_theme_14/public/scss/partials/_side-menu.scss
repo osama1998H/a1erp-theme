@@ -182,6 +182,7 @@
               }
             }
           }
+
           &.active {
             > a {
               background: transparent $imp;
@@ -511,4 +512,8 @@
     color: #2490ef;
     outline: none $imp;
   }
+}
+
+.side-menu .modules-menu {
+  overflow: auto;
 }

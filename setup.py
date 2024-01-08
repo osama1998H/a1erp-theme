@@ -9,7 +9,7 @@ from datavalue_theme_14 import __version__ as version
 setup(
 	name="datavalue_theme_14",
 	version=version,
-	description="Data Value Frappe 14 Theme",
+	description="Data Value 14 Theme",
 	author="Abdo Hamoud",
 	author_email="abdo.host@gmail.com",
 	packages=find_packages(),
